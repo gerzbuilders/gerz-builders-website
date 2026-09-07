@@ -405,29 +405,90 @@ button:hover {
 }
 
 .service-box {
-  background: white;
-  color: #000;
-  padding: 30px;
-  border: 1px solid #ddd;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 300px;
+  padding: 0;
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: 12px;
-  min-height: 235px;
+  overflow: hidden;
+  color: white;
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   transition: all 0.3s ease;
+}
+
+.service-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.58) 42%,
+    rgba(0,0,0,0.20) 100%
+  );
 }
 
 .service-box:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.service-box-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 30px;
 }
 
 .service-box h3 {
   margin: 0 0 15px;
-  color: #222;
+  color: white;
   font-size: 22px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
 }
 
 .service-box p {
   font-size: 16px;
   line-height: 1.7;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.45);
+}
+
+.framing-bg {
+  background-image: url("images/services/steel-stud-framing.jpg");
+}
+
+.drywall-bg {
+  background-image: url("images/services/drywall-boarding.jpg");
+}
+
+.finishing-bg {
+  background-image: url("images/services/taping-finishing.jpg");
+}
+
+.tbar-bg {
+  background-image: url("images/services/t-bar-ceilings.jpg");
+}
+
+.acoustic-bg {
+  background-image: url("images/services/acoustic-ceiling-tiles.jpg");
+}
+
+.repairs-bg {
+  background-image: url("images/services/ceiling-repairs.jpg");
+}
+
+.pvc-bg {
+  background-image: url("images/services/pvc-panels.jpg");
+}
+
+.renovation-bg {
+  background-image: url("images/services/renovations-repairs.jpg");
 }
 
 .feature-row {
@@ -554,7 +615,6 @@ footer {
   }
 
   .card,
-  .service-box,
   .step {
     background-color: #333;
     color: white;
@@ -562,7 +622,6 @@ footer {
   }
 
   .card h3,
-  .service-box h3,
   .step h3 {
     color: white;
   }
@@ -669,9 +728,12 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .card,
-  .service-box {
+  .card {
     min-height: auto;
+  }
+
+  .service-box {
+    min-height: 260px;
   }
 }
 /* ===== Positioning and conversion upgrades ===== */
